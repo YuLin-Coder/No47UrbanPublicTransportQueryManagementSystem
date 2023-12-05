@@ -1,0 +1,25 @@
+@charset "gb2312";
+body,div,hr,blockquote,ul,ol,li,table,th,td,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,form,input,button,select,textarea,fieldset,legend{margin:0;padding:0}
+body{font-size:12px;color:#333; background-color:#f4f4f4;font-family:Tahoma,Geneva,sans-serif,'ÀŒÃÂ';}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
+.clearfix{*zoom:1}
+.clearfix:after{display:block;clear:both;content:".";visibility:hidden;height:0}
+*+html img{-ms-interpolation-mode:bicubic}
+.clearboth{ clear:both;}
+ul,ol{list-style:none}
+fieldset,img{border:0}
+address,cite,dfn,em,var{font-style:normal}
+strong,.fcu{font-weight:bold}
+table{border-collapse:collapse;border-spacing:0}
+button,.fhand{cursor:pointer}
+button,input,select,textarea{font-size:100%;}
+html{zoom:expression(function(ele){ele.style.zoom="1";document.execCommand("BackgroundImageCache",false,true)}(this))}
+/*Õ®”√*/
+.navbox_{width:960px;margin:0 auto; overflow:hidden;zoom:1}
+.navbox{width:960px;margin:0 auto; overflow:hidden;zoom:1; margin-top:8px;}
+.f_l{ float:left;}
+.f_r{ float:right;}
+.margintop{margin-top:8px;}
+.paddingtop{padding-top:8px;}
+a{color:#383838; text-decoration: none;}
+a:hover{color:#c00; text-decoration:underline;}

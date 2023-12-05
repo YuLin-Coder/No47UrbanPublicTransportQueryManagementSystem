@@ -1,0 +1,28 @@
+/*slider*/
+#slider{width:100%;background-color:#000; padding-top:8px;}
+.slider_box{width:960px; margin:0 auto;height: 338px;overflow: hidden;position: relative;}
+.silder_tip{width: 92px;height: 92px;overflow: hidden;position: absolute;top: 0;right: 0;z-index:1; text-indent:-999px;background:url(../images/tip-tt.gif) no-repeat;}
+#movie_tip{background-position: -93px 0;}
+.silder_con{height:270px;overflow: hidden;position: absolute;}
+.silder_panel{width:960px;height:270px;overflow: hidden;float: left;position: relative;background: #111;}
+.silder_panel img{width: 690px;height: 270px;display: block;overflow: hidden;}
+.silder_intro{width: 210px;height: 270px;line-height: 20px;overflow: hidden;color: #999;padding: 0 40px 0 0;}
+.silder_intro h3{padding:10px 0;height:50px;color:#7acf39;line-height: 30px;overflow: hidden;}
+.silder_intro h3 strong{font-family: "ËÎÌו";font-size: 24px;height:30px;overflow: hidden;font-weight: normal;display: block;}
+.silder_intro h3 strong a{ color: #fff; font-weight:bold;}
+.silder_intro ul{height: 60px;overflow: hidden;}	
+.silder_intro li{height: 20px;overflow: hidden;color:#787878;}
+.silder_intro li a{color:#787878; margin:0 6px;}
+.silder_intro span{ margin: 0 10px 0 0;}
+.silder_intro p{height:72px;overflow: hidden;color:#787878; margin-top:10px; line-height:18px;}
+.silder_play{display: block;width:136px;height:30px;overflow: hidden;text-indent: -999px;position: absolute;bottom: 13px;right: 45px;background: url(../images/silder-play.png) 0 -30px no-repeat;}	
+.silder_play:hover{ background-position: 0 0;}
+.silder_nav{width:960px;height:58px;margin: 0 auto;bottom: 0;position: absolute;overflow: hidden;}
+.silder_nav li{float: left;padding:0px;border:1px solid #fff; margin:2px;}
+.silder_nav li.current{border:3px solid #7acf39; margin:0 4px;}
+.silder_nav li,.silder_nav img{display: block;width:112px;height:48px;overflow: hidden;}
+.slider_box a.prev,.slider_box a.next{display: block;width:45px;height:100px;overflow:hidden;text-indent: -999px;position: absolute;cursor: pointer;margin: 85px 0 0 0;background: url(../images/silder_btn.gif) no-repeat;}	
+.slider_box a.prev{left:0;background-position: left 0;}
+.slider_box a.next{right:0;background-position: right 0;}
+.silderBox{height:8px; line-height:8px;}
+
