@@ -1,70 +1,45 @@
 package cn.fun.action;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import cn.fun.common.BaseAction;
+import cn.fun.entity.Notice;
+import cn.fun.service.BizService;
+import com.opensymphony.xwork2.ModelDriven;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import util.*;
 
-import com.opensymphony.xwork2.ModelDriven;
-
-import cn.fun.common.BaseAction;
-import cn.fun.entity.Bus;
-import cn.fun.entity.Driver;
-import cn.fun.entity.Line;
-import cn.fun.entity.LineBus;
-import cn.fun.service.BizService;
-import util.Constant;
-import util.FieldUtil;
-import util.MessageUtil;
-import util.Page;
-import util.SearchParamBean;
-import util.StringUtil;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 @ParentPackage("struts-default")
 @Namespace("/sys")
 @Component
-public class LineBusAction extends BaseAction implements ModelDriven<LineBus> {
-	private String		actionname1		= "车次";
-	private String		actionclass1	= "LineBus";
+public class NoticeAction extends BaseAction implements ModelDriven<Notice> {
+	private String		actionname1		= "公告";
+	private String		actionclass1	= "Notice";
 	@Autowired
 	private BizService	service;
 
 	private int			uid;
-	private LineBus		bean			= new LineBus();
+	private Notice			bean			= new Notice();
 
-	@Action(value = "add2LineBus", results = { @Result(name = "add2", location = "/ahtml/addLineBus.jsp") })
+	@Action(value = "add2Notice", results = { @Result(name = "add2", location = "/ahtml/addNotice.jsp") })
 	public String add2() {
-		List<?> list1 = service.findAll(Line.class);
-		putRequestValue("list1", list1);
-		List<?> list2 = service.findAll(Bus.class);
-		putRequestValue("list2", list2);
-		List<?> list3 = service.findAll(Driver.class);
-		putRequestValue("list3", list3);
 		return "add2";
 	}
 
-	@Action(value = "getLineBus", results = { @Result(name = "getOne", location = "/ahtml/modifyLineBus.jsp") })
+	@Action(value = "getNotice", results = { @Result(name = "getOne", location = "/ahtml/modifyNotice.jsp") })
 	public String get() {
 		try {
-			LineBus temp = (LineBus) service.get(LineBus.class, uid);
+			Notice temp = (Notice) service.get(Notice.class, uid);
 			putRequestValue("modifybean", temp);
-
-			List<?> list1 = service.findAll(Line.class);
-			putRequestValue("list1", list1);
-			List<?> list2 = service.findAll(Bus.class);
-			putRequestValue("list2", list2);
-			List<?> list3 = service.findAll(Driver.class);
-			putRequestValue("list3", list3);
-
 			return "getOne";
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -72,11 +47,11 @@ public class LineBusAction extends BaseAction implements ModelDriven<LineBus> {
 		}
 	}
 
-	@Action(value = "deleteLineBus")
+	@Action(value = "deleteNotice")
 	public String delete() {
 		try {
-			service.delete(LineBus.class, ids);
-			MessageUtil.addRelMessage(getHttpServletRequest(), "删除信息成功.", "mainqueryLineBus");
+			service.delete(Notice.class, ids);
+			MessageUtil.addRelMessage(getHttpServletRequest(), "删除信息成功.", "mainqueryNotice");
 			return SUCCESS;
 		} catch (Exception e) {
 			MessageUtil.addMessage(getRequest(), "删除失败");
@@ -84,11 +59,11 @@ public class LineBusAction extends BaseAction implements ModelDriven<LineBus> {
 		}
 	}
 
-	@Action(value = "updateLineBus")
+	@Action(value = "updateNotice")
 	public String update() {
 		try {
 			service.update(bean);
-			MessageUtil.addCloseMessage(getHttpServletRequest(), "更新成功.", "mainqueryLineBus");
+			MessageUtil.addCloseMessage(getHttpServletRequest(), "更新成功.", "mainqueryNotice");
 			return SUCCESS;
 		} catch (Exception e) {
 			MessageUtil.addMessage(getRequest(), "更新失败");
@@ -96,11 +71,12 @@ public class LineBusAction extends BaseAction implements ModelDriven<LineBus> {
 		}
 	}
 
-	@Action(value = "addLineBus")
+	@Action(value = "addNotice")
 	public String add() {
 		try {
+			bean.setAddDate(DateUtil.getCurrentTime());
 			service.add(bean);
-			MessageUtil.addRelMessage(getHttpServletRequest(), "添加成功.", "mainqueryLineBus");
+			MessageUtil.addRelMessage(getHttpServletRequest(), "添加成功.", "mainqueryNotice");
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -109,7 +85,7 @@ public class LineBusAction extends BaseAction implements ModelDriven<LineBus> {
 		}
 	}
 
-	@Action(value = "queryLineBus", results = { @Result(name = "queryList", location = "/ahtml/listLineBus.jsp") })
+	@Action(value = "queryNotice", results = { @Result(name = "queryList", location = "/ahtml/listNotice.jsp") })
 	public String query() {
 		try {
 			int pageNum = 0;
@@ -140,7 +116,7 @@ public class LineBusAction extends BaseAction implements ModelDriven<LineBus> {
 					if (StringUtil.notEmpty(fieldValue)) {
 						name = name.substring(2, name.length());// 实体字段名称
 						parmnames.add(name);
-						parmvalues.add(FieldUtil.format(LineBus.class, name, fieldValue));
+						parmvalues.add(FieldUtil.format(Notice.class, name, fieldValue));
 						textmap.put(name.replaceAll("\\.", ""), fieldValue);
 					}
 				}
@@ -153,7 +129,7 @@ public class LineBusAction extends BaseAction implements ModelDriven<LineBus> {
 			p.setConditonObject(sbean);
 
 			Page page = null;
-			page = service.find(p, LineBus.class);
+			page = service.find(p, Notice.class);
 
 			putRequestValue("textmap", textmap);
 
@@ -165,10 +141,10 @@ public class LineBusAction extends BaseAction implements ModelDriven<LineBus> {
 		}
 	}
 
-	public LineBus getModel() {
+	@Override
+	public Notice getModel() {
 		return bean;
 	}
-
 	public int getUid() {
 		return uid;
 	}
@@ -191,7 +167,7 @@ public class LineBusAction extends BaseAction implements ModelDriven<LineBus> {
 		return service;
 	}
 
-	public LineBus getBean() {
+	public Notice getBean() {
 		return bean;
 	}
 
@@ -199,7 +175,7 @@ public class LineBusAction extends BaseAction implements ModelDriven<LineBus> {
 		this.service = service;
 	}
 
-	public void setBean(LineBus bean) {
+	public void setBean(Notice bean) {
 		this.bean = bean;
 	}
 

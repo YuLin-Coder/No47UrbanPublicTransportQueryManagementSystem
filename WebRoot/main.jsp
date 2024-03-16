@@ -25,6 +25,7 @@
         </div>
         <nav id="bjui-navbar-collapse">
             <ul class="bjui-navbar-right">
+                <li class="datetime"><div><a href="${pageContext.request.contextPath}/com/gongjiao.action">前台首页</a></div></li>
                 <li class="datetime"><div><span id="bjui-date"></span> <span id="bjui-clock"></span></div></li>
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">我的账户 <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
@@ -41,14 +42,15 @@
             <div id="bjui-hnav-navbar-box">
                 <ul id="bjui-hnav-navbar">
                 	<c:if test="${SESSION_BEAN.role=='SimpleUser' }">
-                		<li class="active"><a href="javascript:;" data-toggle="slidebar"><i class="fa fa-cog"></i> 投诉建议</a>
-	                        <div class="items hide" data-noinit="true">
-	                        
-	                             <ul class="menu-items" data-faicon="table">
-	                                <li><a href="${ctx}/sys/queryUserNote.action" data-options="{id:'mainqueryUserNote', faicon:'table','fresh':true}">投诉建议</a></li>
-	                            </ul>
-	                        </div>
-	                    </li>
+                        <li class="active"><a href="javascript:;" data-toggle="slidebar"><i class="fa fa-cog"></i> 站点线路</a>
+                            <div class="items hide" data-noinit="true">
+                                <ul class="menu-items" data-faicon="table">
+                                    <li><a href="${ctx}/sys/queryBusUser.action" data-options="{id:'mainqueryBus', faicon:'table','fresh':true}">公交车信息查询</a></li>
+                                    <li><a href="${ctx}/sys/queryDriverUser.action" data-options="{id:'mainqueryDriver', faicon:'table','fresh':true}">驾驶员信息查询</a></li>
+                                </ul>
+
+                            </div>
+                        </li>
                 	</c:if>
                 	<c:if test="${SESSION_BEAN.role=='SysUser' }">
                     <li class="active"><a href="javascript:;" data-toggle="slidebar"><i class="fa fa-cog"></i> 站点线路</a>
@@ -57,8 +59,7 @@
                                 <li><a href="${ctx}/sys/queryStation.action" data-options="{id:'mainqueryStation', faicon:'table','fresh':true}">站点管理</a></li>
                                 <li><a href="${ctx}/sys/queryLine.action" data-options="{id:'mainqueryLine', faicon:'table','fresh':true}">线路管理</a></li>
                                 <li><a href="${ctx}/sys/queryBus.action" data-options="{id:'mainqueryBus', faicon:'table','fresh':true}">车辆管理</a></li>
-                                <%-- <li><a href="${ctx}/sys/queryDriver.action" data-options="{id:'mainqueryDriver', faicon:'table','fresh':true}">司机管理</a></li>
-                                <li><a href="${ctx}/sys/queryLineBus.action" data-options="{id:'mainqueryLineBus', faicon:'table','fresh':true}">车次管理</a></li> --%>
+                                <li><a href="${ctx}/sys/queryDriver.action" data-options="{id:'mainqueryDriver', faicon:'table','fresh':true}">司机管理</a></li>
                             </ul>
                             
                         </div>
@@ -68,21 +69,11 @@
                         
                              <ul class="menu-items" data-faicon="table">
                                 <li><a href="${ctx}/sys/querySimpleUser.action" data-options="{id:'mainquerySimpleUser', faicon:'table','fresh':true}">用户管理</a></li>
-                                <%-- <li><a href="${ctx}/sys/queryUserNoteAll.action" data-options="{id:'mainqueryUserNote', faicon:'table','fresh':true}">投诉建议</a></li>
-                                <li><a href="${ctx}/sys/queryLostProperty.action" data-options="{id:'mainqueryLostProperty', faicon:'table','fresh':true}">失物领取</a></li>
-                                <li><a href="${ctx}/sys/queryNews.action" data-options="{id:'mainqueryNews', faicon:'table','fresh':true}">公告管理</a></li> --%>
+                                <li><a href="${ctx}/sys/queryNotice.action" data-options="{id:'mainqueryNotice', faicon:'table','fresh':true}">公告管理</a></li>
                             </ul>
                             
                         </div>
                     </li>
-                    <%-- <li class=""><a href="javascript:;" data-toggle="slidebar"><i class="fa fa-database"></i> 数据库管理</a>
-	                        <div class="items hide" data-noinit="true">
-	                        
-	                             <ul class="menu-items" data-faicon="table">
-	                                <li><a href="${ctx}/sys/queryDatabaseFile.action" data-options="{id:'mainqueryDatabaseFile', faicon:'database','fresh':true}">数据库备份/还原</a></li>
-	                            </ul>
-	                        </div>
-	                </li> --%>
                     </c:if>
                     
                     <c:if test="${not empty SESSION_BEAN.user }">
@@ -134,7 +125,7 @@
             </div>
         </div>
     </div>
-    <footer id="bjui-footer"><a href="https://armycodes.com/" target=_blank>Copyright &copy; 从戎源码网 from 2023.</a> &nbsp;&nbsp;<a href="./exit.jsp">返回首页</a>　
+    <footer id="bjui-footer"><a href="https://armycodes.com/" target=_blank>Copyright &copy; xxx from 2024.</a> &nbsp;&nbsp;<a href="${pageContext.request.contextPath}/com/gongjiao.action">返回首页</a>　
     </footer>
     </div>
 </body>

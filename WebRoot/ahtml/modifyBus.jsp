@@ -41,16 +41,33 @@
 				</tr>
 				<tr>
 					<td>
-						<label for="j_custom_fname<%=labelindex%>" class="control-label x120">座位数：</label>
-						<input type="text" name="wei" value="${modifybean.wei}" id="j_custom_fname<%=labelindex++%>"
-							data-rule="required;integer" size="55">
+						<label for="j_custom_fname<%=labelindex%>" class="control-label x120">车型：</label>
+						<input type="text" name="type" value="${modifybean.type}" id="j_custom_fname<%=labelindex++%>"
+							   data-rule="required" size="55">
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<label for="j_custom_fname<%=labelindex%>" class="control-label x120">备注：</label>
-						<input type="text" name="note" value="${modifybean.note}" id="j_custom_fname<%=labelindex++%>" data-rule=""
-							size="55">
+						<label for="j_custom_fname<%=labelindex%>" class="control-label x120">荷载人数：</label>
+						<input type="text" name="wei" value="${modifybean.wei}" id="j_custom_fname<%=labelindex++%>"
+							   data-rule="required;integer" size="55">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="j_custom_fname<%=labelindex%>" class="control-label x120">是否空调车：</label>
+						<select name="air"  id="j_custom_sale32143rew4r231"
+								data-toggle="selectpicker" data-rule="required">
+							<option value="是">是</option>
+							<option value="否">否</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="j_custom_fname<%=labelindex%>" class="control-label x120">投诉电话：</label>
+						<input type="text" name="tel" value="${modifybean.tel}" id="j_custom_fname<%=labelindex++%>" data-rule=""
+							   size="11">
 					</td>
 				</tr>
 			</tbody>
@@ -63,3 +80,6 @@
 		<li><button type="submit" class="btn-default" data-icon="save">保存</button></li>
 	</ul>
 </div>
+<script type="text/javascript">
+	$("#j_custom_sale32143rew4r231").val("${modifybean.air}");
+</script>

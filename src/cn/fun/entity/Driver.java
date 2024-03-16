@@ -16,6 +16,8 @@ public class Driver {
 	private String	driverno;
 	private String	gender;
 	private int		age;
+	private int		driverage;
+	private String	health;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -70,4 +72,19 @@ public class Driver {
 		this.age = age;
 	}
 
+	public int getDriverage() {
+		return driverage;
+	}
+
+	public void setDriverage(int driverage) {
+		this.driverage = driverage;
+	}
+
+	public String getHealth() {
+		return health;
+	}
+
+	public void setHealth(String health) {
+		this.health = health;
+	}
 }

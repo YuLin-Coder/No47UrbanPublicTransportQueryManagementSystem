@@ -13,7 +13,6 @@
 		console.log(json)
 		console.log($form)
 	}
-	//护照有效日期  = 签发日期 + 10年
 	$('#j_custom_issuedate').on('afterchange.bjui.datepicker', function(e, data) {
 		var pattern = 'yyyy-MM-dd'
 		var start = end = data.value
@@ -33,45 +32,15 @@
 			<tbody>
 				<tr>
 					<td>
-						<label for="j_custom_fname<%=labelindex%>" class="control-label x120">车牌号：</label>
-						<select name="bus.id" class="">
-							<c:forEach items="${list2 }" var="item">
-								<option value="${item.id }">${item.pai }</option>
-							</c:forEach>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label for="j_custom_fname<%=labelindex%>" class="control-label x120">司机：</label>
-						<select name="driver.id" class="">
-							<c:forEach items="${list3 }" var="item">
-								<option value="${item.id }">${item.name }</option>
-							</c:forEach>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label for="j_custom_fname<%=labelindex%>" class="control-label x120">线路：</label>
-						<select name="line.id" class="">
-							<c:forEach items="${list1 }" var="item">
-								<option value="${item.id }">${item.sid }</option>
-							</c:forEach>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label for="j_custom_fname<%=labelindex%>" class="control-label x120">出车时间：</label>
-						<input type="text" name="chu" value="${modifybean.chu}" id="j_custom_fname<%=labelindex++%>" data-rule="required"
+						<label for="j_custom_fname<%=labelindex%>" class="control-label x120">标题：</label>
+						<input type="text" name="title" value="${modifybean.title}" id="j_custom_fname<%=labelindex++%>" data-rule="required"
 							size="55">
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<label for="j_custom_fname<%=labelindex%>" class="control-label x120">收车时间：</label>
-						<input type="text" name="shou" value="${modifybean.shou}" id="j_custom_fname<%=labelindex++%>"
+						<label for="j_custom_fname<%=labelindex%>" class="control-label x120">内容：</label>
+						<input type="text" name="content" value="${modifybean.content}" id="j_custom_fname<%=labelindex++%>"
 							data-rule="required" size="55">
 					</td>
 				</tr>

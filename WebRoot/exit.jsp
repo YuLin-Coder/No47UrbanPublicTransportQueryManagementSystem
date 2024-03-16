@@ -6,7 +6,7 @@
 	</head>
 	<body bgcolor="#ffffff">
 			<script type="text/javascript" language="javascript">
-				top.location.href='${pageContext.request.contextPath}/com/gongjiao.action';
+				top.location.href='${pageContext.request.contextPath}/index.jsp';
 			</script>
 	</body>
 </html>

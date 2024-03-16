@@ -20,12 +20,7 @@ import cn.fun.entity.SimpleUser;
 import cn.fun.entity.Station;
 import cn.fun.entity.User;
 import cn.fun.service.BizService;
-import util.Constant;
-import util.FieldUtil;
-import util.MD5;
-import util.Page;
-import util.SearchParamBean;
-import util.StringUtil;
+import util.*;
 
 @ParentPackage("json-default")
 @Namespace("/com")
@@ -221,6 +216,44 @@ public class WebAction extends BaseAction {
 		try {
 			List<?> list = service.queryByHQL("from Line");
 			putRequestValue("lineList", list);
+			return "index";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ERROR;
+		}
+	}
+
+	@Action(value = "notice", results = { @Result(name = "index", location = "/web/notice.jsp") })
+	public String notice() {
+		try {
+			List<?> list = service.queryByHQL("from Notice");
+			putRequestValue("noticeList", list);
+			return "index";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ERROR;
+		}
+	}
+
+	@Action(value = "question", results = { @Result(name = "index", location = "/web/question.jsp") })
+	public String question() {
+		try {
+			List<?> list = service.queryByHQL("from Question order by addDate desc");
+			putRequestValue("questionList", list);
+			return "index";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ERROR;
+		}
+	}
+
+	@Action(value = "answer", results = { @Result(name = "index", location = "/web/answer.jsp") })
+	public String answer() {
+		Integer questionId = Integer.parseInt(getHttpServletRequest().getParameter("questionId"));
+		try {
+			List<?> list = service.queryByHQL("from Answer where questionId=? order by addDate desc", questionId);
+			putRequestValue("answerList", list);
+			putRequestValue("questionId", questionId);
 			return "index";
 		} catch (Exception e) {
 			e.printStackTrace();

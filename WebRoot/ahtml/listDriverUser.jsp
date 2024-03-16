@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../common/head.jsp"%>
 <div class="bjui-pageHeader">
-    <form id="pagerForm" data-toggle="ajaxsearch" action="${ctx}/sys/query${actionclass1}.action" method="post">
+    <form id="pagerForm" data-toggle="ajaxsearch" action="${ctx}/sys/query${actionclass1}User.action" method="post">
     		<input type="hidden" name="pageCurrent" value="0">
         <div class="bjui-searchBar">
             <label>姓名：</label><input type="text" value="" id="${actionclass1}_name" name="s_name" class="form-control" size="10">&nbsp;
@@ -11,14 +11,6 @@
 <!--                 <option value="">全部</option> -->
 <!--             </select>&nbsp; -->
             <button type="submit" class="btn-default" data-icon="search">查询</button>&nbsp;
-            <div class="pull-right">
-                <div class="btn-group">
-                	<button type="button" class="btn-blue" data-url="${ctx}/sys/add2${actionclass1}.action" data-toggle="navtab" data-options="{reloadWarn:''}" data-id="baseAdd" 
-                		data-icon="plus" title="添加记录">添加${actionname1}</button>&nbsp;
-                	<button type="button" class="btn-blue" data-url="${ctx}/sys/delete${actionclass1}.action" data-toggle="doajaxchecked" 
-                		data-confirm-msg="确定要删除选中项吗？" data-idname="ids" data-group="ids" data-icon="remove" title="可以在控制台(network)查看被删除ID">批量删除</button>&nbsp;
-                </div>
-            </div>
         </div>
     </form>
 </div>
@@ -31,8 +23,6 @@
                 <th >驾龄</th>
                 <th >身体状况</th>
                 <th >性别</th>
-                <th width="26"><input type="checkbox" class="checkboxCtrl" data-group="ids" data-toggle="icheck"></th>
-                <th width="100">操作</th>
             </tr>
         </thead>
         <tbody>
@@ -43,11 +33,6 @@
                <td>${item.driverage}</td>
                <td>${item.health}</td>
                 <td>${item.gender}</td>
-                <td><input type="checkbox" name="ids" data-toggle="icheck" value="${item.id }"></td>
-                <td>
-                    <a href="${ctx}/sys/get${actionclass1}.action?uid=${item.id}" class="btn btn-green" data-toggle="navtab" data-options="{reloadWarn:''}" data-id="baseAdd" data-reload-warn="本页已有打开的内容，确定将刷新本页内容，是否继续？" data-title="更新${actionname1}">编辑</a>
-                    <a href="${ctx}/sys/delete${actionclass1}.action?ids=${item.id}" class="btn btn-red" data-toggle="doajax" data-confirm-msg="确定要删除该行信息吗？">删</a>
-                </td>
             </tr>
             </c:forEach>
         </tbody>

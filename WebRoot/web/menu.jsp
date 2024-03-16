@@ -20,6 +20,8 @@
 					<%-- <li id="menuli_news"><a href="${ctx}/com/findNews.action">新闻公告</a></li> --%>
 					<li id="menuli_index"><a href="${ctx}/com/index.action">站点地图</a></li>
 					<li id="menuli_line"><a href="${ctx}/com/line.action">线路地图</a></li>
+					<li id="menuli_notice"><a href="${ctx}/com/notice.action">网站公告</a></li>
+					<li id="menuli_question"><a href="${ctx}/com/question.action">在线询问</a></li>
 				</ul>
 			</nav>
 			<nav class="mobileUI-site-nav" id="site-nav" style="float: right; text-align: right; margin-right: 100px">

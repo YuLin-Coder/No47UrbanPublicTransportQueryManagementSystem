@@ -40,23 +40,23 @@
 				</tr>
 				<tr>
 					<td>
-						<label for="j_custom_fname<%=labelindex%>" class="control-label x120">身份证：</label>
+						<label for="j_custom_fname<%=labelindex%>" class="control-label x120">工号：</label>
 						<input type="text" name="cardno" value="${modifybean.cardno}" id="j_custom_fname<%=labelindex++%>"
 							data-rule="required" size="55">
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<label for="j_custom_fname<%=labelindex%>" class="control-label x120">驾照：</label>
-						<input type="text" name="driverno" value="${modifybean.driverno}" id="j_custom_fname<%=labelindex++%>"
-							data-rule="required" size="55">
+						<label for="j_custom_fname<%=labelindex%>" class="control-label x120">驾龄：</label>
+						<input type="text" name="driverage" value="${modifybean.driverage}" id="j_custom_fname<%=labelindex++%>"
+							data-rule="required;integer" size="55">
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<label for="j_custom_fname<%=labelindex%>" class="control-label x120">年龄：</label>
-						<input type="text" name="age" value="${modifybean.age}" id="j_custom_fname<%=labelindex++%>"
-							data-rule="required;integer" size="55">
+						<label for="j_custom_fname<%=labelindex%>" class="control-label x120">身体状况：</label>
+						<input type="text" name="health" value="${modifybean.health}" id="j_custom_fname<%=labelindex++%>"
+							   data-rule="required" size="55">
 					</td>
 				</tr>
 				<tr>

@@ -30,7 +30,7 @@
 			<value>com.mysql.jdbc.Driver</value>
 		</property>
 		<property name="jdbcUrl">
-			<value>jdbc:mysql://localhost:3306/no47_d9_gjcx?useUnicode=true&amp;characterEncoding=UTF-8</value>
+			<value>jdbc:mysql://localhost:3306/no47_d9_gjcx1?useUnicode=true&amp;characterEncoding=UTF-8</value>
 		</property>
 		<property name="user">
 			<value>root</value>

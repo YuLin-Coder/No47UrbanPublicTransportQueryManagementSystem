@@ -147,6 +147,62 @@ public class DriverAction extends BaseAction implements ModelDriven<Driver> {
 		}
 	}
 
+	@Action(value = "queryDriverUser", results = { @Result(name = "queryList", location = "/ahtml/listDriverUser.jsp") })
+	public String queryDriverUser() {
+		try {
+			int pageNum = 0;
+			String t = getHttpServletRequest().getParameter("pageCurrent");
+			if (StringUtil.notEmpty(t)) {
+				pageNum = Integer.valueOf(t);
+			}
+			Page p = new Page();
+			//if (pageNum == 1 || p == null) {
+			p = new Page();
+			p.setCurrentPageNumber(pageNum);
+			p.setTotalNumber(0l);
+			p.setItemsPerPage(Constant.SESSION_PAGE_NUMBER);
+
+			Map<String, String> textmap = new HashMap<String, String>();
+
+			// 字段名称集合
+			LinkedList<String> parmnames = new LinkedList<String>();
+			// 字段值集合
+			LinkedList<Object> parmvalues = new LinkedList<Object>();
+			// 页面参数集合
+			Set valueset = getHttpServletRequest().getParameterMap().entrySet();
+			for (Object o : valueset) {
+				Entry<String, Object> e = (Entry<String, Object>) o;
+				String name = e.getKey();// 页面字段名称
+				if (name.startsWith("s_")) {
+					String fieldValue = getHttpServletRequest().getParameter(name);// 页面字段值
+					if (StringUtil.notEmpty(fieldValue)) {
+						name = name.substring(2, name.length());// 实体字段名称
+						parmnames.add(name);
+						parmvalues.add(FieldUtil.format(Driver.class, name, fieldValue));
+						textmap.put(name.replaceAll("\\.", ""), fieldValue);
+					}
+				}
+			}
+
+			SearchParamBean sbean = new SearchParamBean();
+			sbean.setParmnames(parmnames);
+			sbean.setParmvalues(parmvalues);
+
+			p.setConditonObject(sbean);
+
+			Page page = null;
+			page = service.find(p, Driver.class);
+
+			putRequestValue("textmap", textmap);
+
+			getHttpSession().setAttribute(Constant.SESSION_PAGE, page);
+			return "queryList";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ERROR;
+		}
+	}
+
 	public Driver getModel() {
 		return bean;
 	}

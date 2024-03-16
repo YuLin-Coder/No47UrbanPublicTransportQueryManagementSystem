@@ -14,6 +14,9 @@ public class Bus {
 	private String	pai;
 	private int		wei;
 	private String	note;
+	private String	type;
+	private String	air;
+	private String	tel;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,4 +54,27 @@ public class Bus {
 		this.note = note;
 	}
 
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getAir() {
+		return air;
+	}
+
+	public void setAir(String air) {
+		this.air = air;
+	}
+
+	public String getTel() {
+		return tel;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
 }

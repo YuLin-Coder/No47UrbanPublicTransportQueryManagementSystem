@@ -148,7 +148,7 @@ function choose_bg() {
     		</form>
         </div>
 	</div>
-	<div class="bottom"> <a href="https://armycodes.com/" target=_blank>Copyright &copy; 从戎源码网 from 2023.</a> &nbsp;&nbsp;<a href="./exit.jsp">返回首页</a></div>
+	<div class="bottom"> <a href="" target=_blank>Copyright &copy; xxx from 2024.</a> &nbsp;&nbsp;<a href="${pageContext.request.contextPath}/com/gongjiao.action">返回首页</a></div>
 </div>
 </body>
 </html>

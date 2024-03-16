@@ -5,7 +5,7 @@
 		<div class="row">
 			<div class="12u">
 				<div id="copyright">
-					<a href="https://armycodes.com/" target=_blank> &copy; 从戎源码网 from 2023.</a>
+					<a href="https://armycodes.com/" target=_blank> &copy; xxx from 2024.</a>
 				</div>
 			</div>
 		</div>
